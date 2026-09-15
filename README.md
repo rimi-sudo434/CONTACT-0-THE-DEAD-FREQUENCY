@@ -11,6 +11,16 @@ A sci-fi mystery survival game where you decode an unknown deep-space signal, al
 * Use the PULSE system to destroy threats.
 * Survive and uncover the mystery behind the signal.
 
+## Screenshots
+
+### Start Menu
+
+<img src="./pic1.png" width="80%">
+
+### Gameplay
+
+<img src="./pic4.png" width="80%">
+
 ## Platform
 
 Windows 64-bit
@@ -18,3 +28,7 @@ Windows 64-bit
 ## Engine
 
 Godot Engine
+
+## Developer
+
+Rimita Ghosh
