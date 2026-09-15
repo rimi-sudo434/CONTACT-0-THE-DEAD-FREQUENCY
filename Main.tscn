@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://dbrwo7cecudlp"]
+
+[ext_resource type="Script" uid="uid://tvcwon2obfeo" path="res://main.gd" id="1_cm0pq"]
+[ext_resource type="Script" uid="uid://c3obg5d44vys7" path="res://signal_panel.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://cfhbeygh1heaa" path="res://background.gd" id="2_fos0i"]
+[ext_resource type="PackedScene" uid="uid://bagkggfmx44j3" path="res://threat.tscn" id="3_cm0pq"]
+[ext_resource type="Script" uid="uid://by8djbyar27ty" path="res://pulse_button.gd" id="3_r0du0"]
+[ext_resource type="Script" uid="uid://lkogrdua1xht" path="res://perimeter_panel.gd" id="4_3dxm6"]
+[ext_resource type="Script" uid="uid://cxcmm5xua3170" path="res://main_menu.gd" id="7_lgr22"]
+[ext_resource type="AudioStream" uid="uid://b6jg7ldfw1dui" path="res://intro_music.mpeg.ogg" id="8_trn2v"]
+
+[node name="Main" type="Node2D" unique_id=1202216049]
+script = ExtResource("1_cm0pq")
+
+[node name="Background" type="ColorRect" parent="." unique_id=959229039]
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0.019607844, 0.039215688, 0.07058824, 1)
+script = ExtResource("2_fos0i")
+
+[node name="SignalPanel" type="ColorRect" parent="." unique_id=267055413]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 641.0
+offset_bottom = 651.0
+color = Color(0.02745098, 0.06666667, 0.12156863, 1)
+script = ExtResource("1_glv2v")
+
+[node name="SignalTitle" type="Label" parent="SignalPanel" unique_id=1718990545]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = 171.0
+offset_bottom = 48.0
+theme_override_font_sizes/font_size = 28
+text = "SIGNAL TERMINAL"
+
+[node name="FrequencyLabel" type="Label" parent="SignalPanel" unique_id=1368617974]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 80.0
+offset_right = 124.0
+offset_bottom = 103.0
+text = "FREQUENCY"
+
+[node name="FrequencySlider" type="HSlider" parent="SignalPanel" unique_id=1228631443]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 100.0
+offset_right = 530.0
+offset_bottom = 130.0
+value = 50.0
+
+[node name="AmplitudeLabel" type="Label" parent="SignalPanel" unique_id=1763997752]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 150.0
+offset_right = 121.0
+offset_bottom = 173.0
+text = "AMPLITUDE"
+
+[node name="AmplitudeSlider" type="HSlider" parent="SignalPanel" unique_id=265574159]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 180.0
+offset_right = 530.0
+offset_bottom = 210.0
+value = 50.0
+
+[node name="PhaseLabel" type="Label" parent="SignalPanel" unique_id=591979042]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 230.0
+offset_right = 81.0
+offset_bottom = 253.0
+text = "PHASE"
+
+[node name="PhaseSlider" type="HSlider" parent="SignalPanel" unique_id=1653192425]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 260.0
+offset_right = 530.0
+offset_bottom = 290.0
+value = 50.0
+
+[node name="DecodeButton" type="Button" parent="SignalPanel" unique_id=270323024]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 300.0
+offset_right = 205.0
+offset_bottom = 350.0
+text = "DECODE SIGNAL"
+
+[node name="Waveform" type="Line2D" parent="SignalPanel" unique_id=399379252]
+width = 3.0
+
+[node name="TargetWaveform" type="Line2D" parent="SignalPanel" unique_id=439670516]
+width = 2.0
+
+[node name="DecodeResult" type="Label" parent="SignalPanel" unique_id=371255807]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 420.0
+offset_right = 430.0
+offset_bottom = 460.0
+text = "AWAITING SIGNAL..."
+
+[node name="TransmissionLabel" type="Label" parent="SignalPanel" unique_id=1453683015]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 525.0
+offset_right = 580.0
+offset_bottom = 605.0
+text = "NO TRANSMISSION DETECTED"
+
+[node name="DecodeTimer" type="Timer" parent="SignalPanel" unique_id=1382040587]
+wait_time = 10.0
+
+[node name="TimerLabel" type="Label" parent="SignalPanel" unique_id=1449202803]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 550.0
+offset_bottom = 340.0
+text = "TIME: 10"
+
+[node name="IncomingSignal" type="AudioStreamPlayer" parent="SignalPanel" unique_id=969567831]
+
+[node name="PerimeterPanel" type="ColorRect" parent="." unique_id=1617802736]
+offset_left = 640.0
+offset_right = 1280.0
+offset_bottom = 650.0
+color = Color(0.050980393, 0.039215688, 0.039215688, 1)
+script = ExtResource("4_3dxm6")
+
+[node name="Threat" parent="PerimeterPanel" unique_id=1350406179 instance=ExtResource("3_cm0pq")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="PulseButton" type="Button" parent="PerimeterPanel" unique_id=1139545138]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 550.0
+offset_right = 190.0
+offset_bottom = 600.0
+text = "PULSE"
+script = ExtResource("3_r0du0")
+
+[node name="IntegrityLabel" type="Label" parent="PerimeterPanel" unique_id=504080694]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = 233.0
+offset_bottom = 53.0
+text = "STATION INTEGRITY: 100%"
+
+[node name="GameOverLabel" type="Label" parent="PerimeterPanel" unique_id=42575318]
+visible = false
+layout_mode = 0
+offset_left = 200.0
+offset_top = 350.0
+offset_right = 311.0
+offset_bottom = 373.0
+text = "STATION LOST"
+
+[node name="ThreatTimer" type="Timer" parent="." unique_id=289019396]
+wait_time = 2.5
+autostart = true
+
+[node name="MainMenu" type="CanvasLayer" parent="." unique_id=405167331]
+script = ExtResource("7_lgr22")
+
+[node name="IntroMusic" type="AudioStreamPlayer" parent="MainMenu" unique_id=844241366]
+stream = ExtResource("8_trn2v")
+
+[connection signal="pressed" from="SignalPanel/DecodeButton" to="SignalPanel" method="_on_decode_button_pressed"]
+[connection signal="pressed" from="PerimeterPanel/PulseButton" to="SignalPanel" method="_on_pulse_button_pressed"]
+[connection signal="timeout" from="ThreatTimer" to="." method="_on_threat_timer_timeout"]
